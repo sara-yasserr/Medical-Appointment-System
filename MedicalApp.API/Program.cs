@@ -151,6 +151,8 @@ namespace MedicalApp.API
             #endregion
 
             var app = builder.Build();
+            //Hosting
+            app.Urls.Add($"http://0.0.0.0:{Environment.GetEnvironmentVariable("PORT") ?? "5000"}");
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
