@@ -25,27 +25,29 @@ namespace MedicalApp.BL.Services
                 using (var scope = _scopeFactory.CreateScope())
                 {
                     var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-
                     var now = DateTime.Now;
                     var next24Hours = now.AddHours(24);
-
-                    // تجيب المواعيد الجاية خلال الـ 24 ساعة
-                    var upcomingAppointments = await context.Appointments
-                        .Include(a => a.Patient)
-                        .Include(a => a.Doctor)
-                        .Where(a => a.AppointmentDate >= now && a.AppointmentDate <= next24Hours
-                                    && a.Status == DA.Enums.Status.Scheduled)
-                        .ToListAsync(stoppingToken);
-
-                    foreach (var appt in upcomingAppointments)
+                    try
                     {
-                        // هنا بنسجل لوج بدل ما نبعت إيميل حقيقي
-                        Log.Information("Reminder: Appointment {AppointmentId} for Patient {PatientEmail} with Doctor {DoctorEmail} at {Date}",
-                            appt.Id, appt.Patient.User.Email, appt.Doctor.User.Email, appt.AppointmentDate);
-                    }
-                }
+                        var upcomingAppointments = await context.Appointments
+                            .Include(a => a.Patient)
+                            .Include(a => a.Doctor)
+                            .Where(a => a.AppointmentDate >= now && a.AppointmentDate <= next24Hours
+                                        && a.Status == DA.Enums.Status.Scheduled)
+                            .ToListAsync(stoppingToken);
 
-                // ينتظر ساعة قبل المرة الجاية
+                        foreach (var appt in upcomingAppointments)
+                        {
+                            Log.Information("Reminder: Appointment {AppointmentId} for Patient {PatientEmail} with Doctor {DoctorEmail} at {Date}",
+                                appt.Id, appt.Patient.User.Email, appt.Doctor.User.Email, appt.AppointmentDate);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error(ex, "Error checking appointments");
+                    }
+
+                }
                 await Task.Delay(TimeSpan.FromHours(1), stoppingToken);
             }
         }

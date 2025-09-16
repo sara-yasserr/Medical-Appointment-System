@@ -61,6 +61,7 @@ namespace MedicalApp.API
             builder.Services.AddScoped<IDoctorRepository, DoctorRepository>();
             builder.Services.AddScoped<IPatientRepository, PatientRepository>();
             builder.Services.AddScoped<AuthService>();
+            builder.Services.AddHostedService<AppointmentReminderService>();
             #endregion
 
             #region Identity Config 
