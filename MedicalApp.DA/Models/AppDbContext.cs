@@ -10,32 +10,63 @@ namespace MedicalApp.DA.Models
         public virtual DbSet<Patient> Patients { get; set; }
         public virtual DbSet<Doctor> Doctors { get; set; }
         public virtual DbSet<Appointment> Appointments { get; set; }
+
+        //private const string AdminUserId = "Admin-USER-001";
+
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
-        public static async Task SeedRolesAndAdmin(IServiceProvider serviceProvider)
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-            var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-
-            string[] roles = { "Admin", "Doctor", "Patient" };
-
-            foreach (var role in roles)
-            {
-                if (!await roleManager.RoleExistsAsync(role))
+            base.OnModelCreating(modelBuilder);
+            string adminUserId = "Admin-USER-001";
+            string adminRoleId = "ADMIN-ROLE-001";
+            string doctorRoleId = "DOCTOR-ROLE-001";
+            string patientRoleId = "PATIENT-ROLE-001";
+            modelBuilder.Entity<IdentityRole>().HasData(
+                new IdentityRole
                 {
-                    await roleManager.CreateAsync(new IdentityRole(role));
+                    Id = adminRoleId,
+                    Name = "Admin",
+                    NormalizedName = "ADMIN"
+                },
+                new IdentityRole
+                {
+                    Id = doctorRoleId,
+                    Name = "Doctor",
+                    NormalizedName = "DOCTOR"
+                },
+                new IdentityRole
+                {
+                    Id = patientRoleId,
+                    Name = "Patient",
+                    NormalizedName = "PATIENT"
                 }
-            }
+            );
 
-            string adminEmail = "sarahyasser979@gmail.com";
-            string adminPassword = "admin123";
-
-            if (await userManager.FindByEmailAsync(adminEmail) == null)
+            modelBuilder.Entity<ApplicationUser>().HasData(new ApplicationUser
             {
-                var adminUser = new ApplicationUser { Email = adminEmail };
-                await userManager.CreateAsync(adminUser, adminPassword);
-                await userManager.AddToRoleAsync(adminUser, "Admin");
-            }
-        }
+                Id = adminUserId,
+                UserName = "sarahyasser979@gmail.com",
+                NormalizedUserName = "SARAHYASSER979@GMAIL.COM",
+                Email = "sarahyasser979@gmail.com",
+                NormalizedEmail = "SARAHYASSER979@GMAIL.COM",
+                EmailConfirmed = true,
+                //Admin@123
+                PasswordHash = "AQAAAAIAAYagAAAAEIjJh6/LXD2Bg+3MJGc+CmiaE471FJWBEmlTQ/1OhqkFw0NIgG/beU7wkTfmnuQ/sQ==",
+                SecurityStamp = "STATIC-SECURITY-STAMP-001",
+                ConcurrencyStamp = "STATIC-CONCURRENCY-STAMP-001",
+                FirstName = "Sara",
+                LastName = "Yasser",
+                PhoneNumber = "01159757952"
+            });
 
+            modelBuilder.Entity<IdentityUserRole<string>>().HasData(
+new IdentityUserRole<string>
+{
+    RoleId = adminRoleId,
+    UserId = adminUserId
+}
+ );
+        }
     }
 }

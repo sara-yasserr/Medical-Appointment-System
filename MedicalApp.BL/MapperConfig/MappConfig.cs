@@ -16,8 +16,14 @@ namespace MedicalApp.BL.MapperConfig
         public MappConfig() 
         {
             #region ApplicationUser Mappings
-            CreateMap<ApplicationUser, DoctorDTO>().ReverseMap();
-            CreateMap<ApplicationUser, PatientDTO>().ReverseMap();
+            CreateMap<DoctorDTO, ApplicationUser >().AfterMap((src, dest) =>
+            {
+                dest.UserName = src.Email;
+            }).ReverseMap();
+            CreateMap<PatientDTO, ApplicationUser > ().AfterMap((src, dest) =>
+            {
+                dest.UserName = src.Email;
+            }).ReverseMap();
             #endregion
 
             #region Appointment Mappings

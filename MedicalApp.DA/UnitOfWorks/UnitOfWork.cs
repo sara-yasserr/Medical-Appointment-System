@@ -13,7 +13,7 @@ namespace MedicalApp.DA.UnitOfWorks
     public class UnitOfWork : IUnitOfWork
     {
         private readonly AppDbContext _context;
-        public readonly UserManager<ApplicationUser> _userManager;
+        //private readonly UserManager<ApplicationUser> _userManager;
         //public RoleManager<IdentityRole> _roleManager;
         private IGenericRepository<Patient> _patientRepo;
         private IGenericRepository<Doctor> _doctorRepo;
@@ -22,7 +22,7 @@ namespace MedicalApp.DA.UnitOfWorks
         {
             _context = context;
         }
-        public UserManager<ApplicationUser> UserManager => _userManager;
+        //public UserManager<ApplicationUser> UserManager => _userManager;
         public IGenericRepository<Patient> PatientRepo
         {
             get

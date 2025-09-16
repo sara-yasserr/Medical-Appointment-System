@@ -10,7 +10,7 @@ namespace MedicalApp.DA.Interfaces
 {
     public interface IUnitOfWork
     {
-        UserManager<ApplicationUser> UserManager { get; }
+        //UserManager<ApplicationUser> UserManager { get; }
         IGenericRepository<Patient> PatientRepo { get; }
         IGenericRepository<Doctor> DoctorRepo { get; }
         IGenericRepository<Appointment> AppointmentRepo { get; }

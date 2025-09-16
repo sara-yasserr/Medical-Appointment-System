@@ -3,6 +3,7 @@ using MedicalApp.BL.DTOs.DoctorDTOs;
 using MedicalApp.BL.Interfaces;
 using MedicalApp.DA.Interfaces;
 using MedicalApp.DA.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
 
@@ -15,12 +16,15 @@ namespace MedicalApp.API.Controllers
         private readonly IUnitOfWork _unitOfWork;
         private readonly IDoctorRepository _doctorRepository;
         private readonly IMapper _mapper;
+        private readonly UserManager<ApplicationUser> _userManager;
+
         public DoctorController( IUnitOfWork unitOfWork,
-            IDoctorRepository doctorRepository, IMapper mapper)
+            IDoctorRepository doctorRepository, IMapper mapper, UserManager<ApplicationUser> userManager)
         {
             _unitOfWork = unitOfWork;
             _doctorRepository = doctorRepository;
             _mapper = mapper;
+            _userManager = userManager;
         }
 
         [HttpPost("register")]
@@ -30,17 +34,17 @@ namespace MedicalApp.API.Controllers
                 return BadRequest(ModelState);
 
             // Check if email is already used
-            var existingUser = await _unitOfWork.UserManager.FindByEmailAsync(registerDTO.Email);
+            var existingUser = await _userManager.FindByEmailAsync(registerDTO.Email);
             if (existingUser != null)
                 return BadRequest("Email already used.");
 
             // Create Identity user
             var user = _mapper.Map<ApplicationUser>(registerDTO);
 
-            var result = await _unitOfWork.UserManager.CreateAsync(user, registerDTO.Password);
+            var result = await _userManager.CreateAsync(user, registerDTO.Password);
             if (!result.Succeeded)
                 return BadRequest(result.Errors);
-            await _unitOfWork.UserManager.AddToRoleAsync(user, "Doctor");
+            await _userManager.AddToRoleAsync(user, "Doctor");
             var doctor = _mapper.Map<Doctor>(registerDTO);
             doctor.UserId = user.Id; 
 

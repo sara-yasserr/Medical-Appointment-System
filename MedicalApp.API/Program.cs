@@ -10,12 +10,13 @@ using MedicalApp.DA.Repositories.Custom;
 using MedicalApp.DA.Interfaces;
 using MedicalApp.BL.Interfaces;
 using Microsoft.AspNetCore.Identity;
+using MedicalApp.BL.Services;
 
 namespace MedicalApp.API
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             #region Serilog Config
             Log.Logger = new LoggerConfiguration()
@@ -31,6 +32,7 @@ namespace MedicalApp.API
             builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseLazyLoadingProxies() 
                        .UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            
             #endregion
             #region Services Config
             builder.Services.AddControllers();
@@ -54,6 +56,7 @@ namespace MedicalApp.API
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddScoped<IDoctorRepository, DoctorRepository>();
             builder.Services.AddScoped<IPatientRepository, PatientRepository>();
+            builder.Services.AddScoped<AuthService>();
             #endregion
             #region Identity Config 
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
