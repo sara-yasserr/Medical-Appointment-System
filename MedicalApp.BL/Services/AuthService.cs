@@ -33,9 +33,14 @@ namespace MedicalApp.BL.Services
                 claims.Add(new Claim(ClaimTypes.Role, role));
             }
 
-            // Add permissions as serialized JSON
-            //var permissionsJson = JsonSerializer.Serialize(permissions);
-            //claims.Add(new Claim("permissions", permissionsJson));
+            //// Add permissions
+            //if (permissions != null && permissions.Any())
+            //{
+            //    foreach (var perm in permissions)
+            //    {
+            //        claims.Add(new Claim("permission", perm));
+            //    }
+            //}
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);

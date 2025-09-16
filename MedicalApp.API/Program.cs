@@ -11,6 +11,9 @@ using MedicalApp.DA.Interfaces;
 using MedicalApp.BL.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using MedicalApp.BL.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace MedicalApp.API
 {
@@ -30,10 +33,11 @@ namespace MedicalApp.API
 
             # region DbContext Config
             builder.Services.AddDbContext<AppDbContext>(options =>
-                options.UseLazyLoadingProxies() 
+                options.UseLazyLoadingProxies()
                        .UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-            
+
             #endregion
+
             #region Services Config
             builder.Services.AddControllers();
             builder.Services.AddOpenApi();
@@ -58,6 +62,7 @@ namespace MedicalApp.API
             builder.Services.AddScoped<IPatientRepository, PatientRepository>();
             builder.Services.AddScoped<AuthService>();
             #endregion
+
             #region Identity Config 
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
@@ -69,6 +74,80 @@ namespace MedicalApp.API
             })
             .AddEntityFrameworkStores<AppDbContext>()
             .AddDefaultTokenProviders();
+            #endregion
+
+            #region JWT Config
+            // Add Authentication
+            builder.Services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+
+                    ValidIssuer = builder.Configuration["Jwt:Issuer"],
+                    ValidAudience = builder.Configuration["Jwt:Audience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(
+                        Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+                };
+            });
+
+            // Add Authorization
+            builder.Services.AddAuthorization();
+            #endregion
+
+            #region Swagger Config
+            builder.Services.AddSwaggerGen(c =>
+            {
+                //c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "MedicalApp API", Version = "v1" });
+
+                // Add JWT Authentication to Swagger
+                c.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+                {
+                    Name = "Authorization",
+                    Type = Microsoft.OpenApi.Models.SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    In = Microsoft.OpenApi.Models.ParameterLocation.Header,
+                    Description = "Enter 'Bearer' [space] and then your valid token.\r\nExample: \"Bearer eyJhbGciOiJI...\""
+                });
+
+                c.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
+    {
+        {
+            new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+            {
+                Reference = new Microsoft.OpenApi.Models.OpenApiReference
+                {
+                    Type = Microsoft.OpenApi.Models.ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            Array.Empty<string>()
+        }
+    });
+            });
+
+            #endregion
+
+            #region CORS Config
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", policy =>
+                {
+                    policy.AllowAnyOrigin()
+                          .AllowAnyMethod()
+                          .AllowAnyHeader();
+                });
+            });
+
             #endregion
 
             var app = builder.Build();
@@ -86,6 +165,7 @@ namespace MedicalApp.API
 
             app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseCors("AllowAll");
             app.UseAuthentication();
             app.UseAuthorization();
             app.MapControllers();

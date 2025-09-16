@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MedicalApp.BL.DTOs.DoctorDTOs
 {
-    public class DoctorDTO
+    public class RegisterDoctorDTO
     {
         [Required(ErrorMessage = "First Name is required")]
         [StringLength(50, ErrorMessage = "First Name cannot be longer than 50 characters")]
@@ -30,6 +30,7 @@ namespace MedicalApp.BL.DTOs.DoctorDTOs
         [StringLength(15, ErrorMessage = "Phone Number cannot be longer than 15 digits")]
         public string PhoneNumber { get; set; }
         [Required(ErrorMessage = "Password is required")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
     }
 }

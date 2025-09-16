@@ -3,6 +3,7 @@ using MedicalApp.BL.DTOs.DoctorDTOs;
 using MedicalApp.BL.Interfaces;
 using MedicalApp.DA.Interfaces;
 using MedicalApp.DA.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
@@ -28,7 +29,7 @@ namespace MedicalApp.API.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] DoctorDTO registerDTO)
+        public async Task<IActionResult> Register([FromBody] RegisterDoctorDTO registerDTO)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -46,7 +47,7 @@ namespace MedicalApp.API.Controllers
                 return BadRequest(result.Errors);
             await _userManager.AddToRoleAsync(user, "Doctor");
             var doctor = _mapper.Map<Doctor>(registerDTO);
-            doctor.UserId = user.Id; 
+            doctor.UserId = user.Id;
 
             _unitOfWork.DoctorRepo.Add(doctor);
             _unitOfWork.SaveChanges();
@@ -56,7 +57,7 @@ namespace MedicalApp.API.Controllers
             return Ok(new { Id = doctor.Id });
         }
 
-
+        [Authorize(Roles = "Admin, Doctor")]
         [HttpGet("details/{id:int}")]
         public IActionResult GetDetails(int id)
         {
@@ -67,9 +68,9 @@ namespace MedicalApp.API.Controllers
             }
             return Ok(doctor);
         }
-
+        [Authorize(Roles = "Admin, Doctor")]
         [HttpPatch("update/{id:int}")]
-        public IActionResult Update(int id, [FromBody] DoctorDTO updateDTO)
+        public async Task<IActionResult> Update(int id, [FromBody] UpdateDoctorDTO updateDTO)
         {
             var doctor = _unitOfWork.DoctorRepo.GetById(id);
             if (doctor == null)
@@ -81,6 +82,15 @@ namespace MedicalApp.API.Controllers
                 return BadRequest(ModelState);
             }
             _mapper.Map(updateDTO, doctor);
+            _mapper.Map(updateDTO, doctor.User);
+            if (!string.IsNullOrEmpty(updateDTO.Password))
+            {
+                var token = await _userManager.GeneratePasswordResetTokenAsync(doctor.User);
+                var result = await _userManager.ResetPasswordAsync(doctor.User, token, updateDTO.Password);
+                if (!result.Succeeded)
+                    return BadRequest(result.Errors);
+            }
+            _userManager.UpdateAsync(doctor.User).Wait();
             _unitOfWork.DoctorRepo.Update(doctor);
             _unitOfWork.SaveChanges();
             Log.Information("Doctor updated: Id={DoctorId}, Email={Email}", doctor.Id, doctor.User.Email);

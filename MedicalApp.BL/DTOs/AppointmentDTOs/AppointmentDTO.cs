@@ -21,7 +21,7 @@ namespace MedicalApp.BL.DTOs.AppointmentDTOs
         public string Reason { get; set; }
 
         [Required(ErrorMessage = "Status is required")]
-        public Status Status { get; set; }
+        public string Status { get; set; }
 
         [Required(ErrorMessage = "Patient is required")]
         public int PatientId { get; set; }

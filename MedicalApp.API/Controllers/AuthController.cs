@@ -14,7 +14,6 @@ namespace MedicalApp.API.Controllers
         private readonly IUnitOfWork _unitOfWork;
         private readonly AuthService _authService;
         private readonly UserManager<ApplicationUser> _userManager;
-
         public AuthController(IUnitOfWork unitOfWork, AuthService authService ,UserManager<ApplicationUser> userManager)
         {
             _unitOfWork = unitOfWork;

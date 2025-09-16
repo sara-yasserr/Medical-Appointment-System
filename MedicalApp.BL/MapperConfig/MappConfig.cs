@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,23 +8,45 @@ using AutoMapper;
 using MedicalApp.BL.DTOs.AppointmentDTOs;
 using MedicalApp.BL.DTOs.DoctorDTOs;
 using MedicalApp.BL.DTOs.PatientDTOs;
+using MedicalApp.DA.Enums;
 using MedicalApp.DA.Models;
 
 namespace MedicalApp.BL.MapperConfig
 {
-    public class MappConfig:Profile
+    public class MappConfig : Profile
     {
-        public MappConfig() 
+        public MappConfig()
         {
             #region ApplicationUser Mappings
-            CreateMap<DoctorDTO, ApplicationUser >().AfterMap((src, dest) =>
+            CreateMap<RegisterDoctorDTO, ApplicationUser>().AfterMap((src, dest) =>
             {
                 dest.UserName = src.Email;
             }).ReverseMap();
-            CreateMap<PatientDTO, ApplicationUser > ().AfterMap((src, dest) =>
+            CreateMap<RegisterPatientDTO, ApplicationUser>().AfterMap((src, dest) =>
             {
                 dest.UserName = src.Email;
             }).ReverseMap();
+            CreateMap<UpdateDoctorDTO, ApplicationUser>().AfterMap((src, dest) =>
+            {
+                if (!string.IsNullOrEmpty(src.Email))
+                {
+                    dest.UserName = src.Email;
+                    dest.NormalizedUserName = src.Email.ToUpper();
+                }
+            })
+            .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
+
+            CreateMap<UpdatePatientDTO, ApplicationUser>().AfterMap((src, dest) =>
+            {
+                if (!string.IsNullOrEmpty(src.Email))
+                {
+                    dest.UserName = src.Email;
+                    dest.NormalizedUserName = src.Email.ToUpper();
+                }
+            })
+            .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
+
+
             #endregion
 
             #region Appointment Mappings
@@ -34,14 +57,23 @@ namespace MedicalApp.BL.MapperConfig
 
             }).ReverseMap();
 
+            CreateMap<AppointmentDTO, Appointment>().AfterMap((src, dest) =>
+            {
+                dest.Status = (Status)Enum.Parse(typeof(Status),src.Status);
+            }).ReverseMap();
             #endregion
 
             #region Doctor Mappings
-            CreateMap<Doctor, DoctorDTO>().ReverseMap();
+            CreateMap<Doctor, RegisterDoctorDTO>().ReverseMap();
+            CreateMap<UpdateDoctorDTO, Doctor>()
+           .ForMember(dest => dest.Specialization, opt => opt.Condition(src => src.Specialization != null));
+
             #endregion
 
             #region Patient Mappings
-            CreateMap<Patient, PatientDTO>().ReverseMap();
+            CreateMap<Patient, RegisterPatientDTO>().ReverseMap();
+            CreateMap<UpdatePatientDTO, Patient>()
+          .ForMember(dest => dest.DateOfBirth, opt => opt.Condition(src => src.DateOfBirth != null));
             #endregion
 
         }

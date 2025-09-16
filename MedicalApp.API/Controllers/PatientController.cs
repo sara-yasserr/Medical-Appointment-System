@@ -6,6 +6,7 @@ using MedicalApp.DA.Interfaces;
 using MedicalApp.DA.Models;
 using MedicalApp.DA.Repositories.Custom;
 using MedicalApp.DA.UnitOfWorks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
@@ -29,7 +30,7 @@ namespace MedicalApp.API.Controllers
             _userManager = userManager;
         }
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] PatientDTO registerDTO)
+        public async Task<IActionResult> Register([FromBody] RegisterPatientDTO registerDTO)
         {
             if (!ModelState.IsValid)
             {
@@ -57,6 +58,8 @@ namespace MedicalApp.API.Controllers
 
             return Ok(new { Id = patient.Id });
         }
+
+        [Authorize(Roles = "Admin, Patient")]
         [HttpGet("details/{id:int}")]
         public IActionResult GetDetails(int id)
         {
@@ -68,8 +71,9 @@ namespace MedicalApp.API.Controllers
             return Ok(patient);
         }
 
+        [Authorize(Roles = "Admin, Patient")]
         [HttpPatch("update/{id:int}")]
-        public IActionResult Update(int id, [FromBody] PatientDTO updateDTO)
+        public async Task<IActionResult> Update(int id, [FromBody] UpdatePatientDTO updateDTO)
         {
             var patient = _unitOfWork.PatientRepo.GetById(id);
             if(patient == null){
@@ -80,7 +84,16 @@ namespace MedicalApp.API.Controllers
                 return BadRequest(ModelState);
             }
             _mapper.Map(updateDTO, patient);
+            _mapper.Map(updateDTO, patient.User);
+            if (!string.IsNullOrEmpty(updateDTO.Password))
+            {
+                var token = await _userManager.GeneratePasswordResetTokenAsync(patient.User);
+                var result = await _userManager.ResetPasswordAsync(patient.User, token, updateDTO.Password);
+                if (!result.Succeeded)
+                    return BadRequest(result.Errors);
+            }
             _unitOfWork.PatientRepo.Update(patient);
+            _userManager.UpdateAsync(patient.User).Wait();
             _unitOfWork.SaveChanges();
             Log.Information("Patient updated: Id={PatientId}, Email={Email}", patient.Id, patient.User.Email);
             return Ok();

@@ -57,14 +57,13 @@ namespace MedicalApp.API.Controllers
             return Ok(readAppointmentsDTO);
         }
         [Authorize(Roles = "Patient")]
-        [HttpGet("doctor/{patientId:int}/appointments")]
+        [HttpGet("patient/{patientId:int}/appointments")]
         public IActionResult GetPatientAppointments(int patientId)
         {
             var appointments = _unitOfWork.AppointmentRepo.GetAll().Where(a => a.PatientId == patientId).ToList();
             var readAppointmentsDTO = _mapper.Map<List<ReadAppointmentDTO>>(appointments);
             return Ok(readAppointmentsDTO);
         }
-
         [HttpPatch("cancel/{id:int}")]
         public IActionResult CancelAppointment(int id)
         {
