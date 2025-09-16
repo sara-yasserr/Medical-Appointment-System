@@ -5,6 +5,10 @@ VisualStudioVersion = 17.12.35707.178 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalApp.API", "MedicalApp.API.csproj", "{2CF77276-64F7-4020-BF5C-54E69D15996B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalApp.BL", "..\MedicalApp.BL\MedicalApp.BL.csproj", "{3C88C73D-C4CB-41C0-A577-D744D9EF695A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalApp.DA", "..\MedicalApp.DA\MedicalApp.DA.csproj", "{56129EEC-D8C2-4431-BE67-350E7C7FAE6C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{2CF77276-64F7-4020-BF5C-54E69D15996B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CF77276-64F7-4020-BF5C-54E69D15996B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CF77276-64F7-4020-BF5C-54E69D15996B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C88C73D-C4CB-41C0-A577-D744D9EF695A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C88C73D-C4CB-41C0-A577-D744D9EF695A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C88C73D-C4CB-41C0-A577-D744D9EF695A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C88C73D-C4CB-41C0-A577-D744D9EF695A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56129EEC-D8C2-4431-BE67-350E7C7FAE6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56129EEC-D8C2-4431-BE67-350E7C7FAE6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56129EEC-D8C2-4431-BE67-350E7C7FAE6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56129EEC-D8C2-4431-BE67-350E7C7FAE6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

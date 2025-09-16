@@ -1,9 +1,15 @@
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.OpenIdConnect;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc.Authorization;
-using Microsoft.Identity.Web;
-using Microsoft.Identity.Web.UI;
+using MedicalApp.BL.MapperConfig;
+using MedicalApp.DA.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
+using MedicalApp.BL.MapperConfig;
+using Serilog;
+using MedicalApp.DA.UnitOfWorks;
+using MedicalApp.DA.Repositories.Custom;
+using MedicalApp.DA.Interfaces;
+using MedicalApp.BL.Interfaces;
+using Microsoft.AspNetCore.Identity;
 
 namespace MedicalApp.API
 {
@@ -11,44 +17,75 @@ namespace MedicalApp.API
     {
         public static void Main(string[] args)
         {
+            #region Serilog Config
+            Log.Logger = new LoggerConfiguration()
+            .MinimumLevel.Debug()
+            .WriteTo.Console()
+            .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day)
+            .CreateLogger();
+            #endregion
             var builder = WebApplication.CreateBuilder(args);
+            builder.Host.UseSerilog();
 
-            // Add services to the container.
-            builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-                .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureAd"));
-
-            builder.Services.AddControllersWithViews(options =>
+            # region DbContext Config
+            builder.Services.AddDbContext<AppDbContext>(options =>
+                options.UseLazyLoadingProxies() 
+                       .UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            #endregion
+            #region Services Config
+            builder.Services.AddControllers();
+            builder.Services.AddOpenApi();
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen(c =>
             {
-                var policy = new AuthorizationPolicyBuilder()
-                    .RequireAuthenticatedUser()
-                    .Build();
-                options.Filters.Add(new AuthorizeFilter(policy));
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "Medical App API",
+                    Version = "v1",
+                    Description = "API documentation for Medical App",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Sara Yasser",
+                        Email = "sarahyasser979@gmail.com"
+                    }
+                });
             });
-            builder.Services.AddRazorPages()
-                .AddMicrosoftIdentityUI();
+            builder.Services.AddAutoMapper(cfg => cfg.AddProfile<MappConfig>());
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+            builder.Services.AddScoped<IDoctorRepository, DoctorRepository>();
+            builder.Services.AddScoped<IPatientRepository, PatientRepository>();
+            #endregion
+            #region Identity Config 
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                options.Password.RequireDigit = true;
+                options.Password.RequiredLength = 6;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = true;
+                options.Password.RequireLowercase = true;
+            })
+            .AddEntityFrameworkStores<AppDbContext>()
+            .AddDefaultTokenProviders();
+            #endregion
 
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
-            if (!app.Environment.IsDevelopment())
+            if (app.Environment.IsDevelopment())
             {
-                app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
+                app.UseSwagger();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Medical App API v1");
+                    c.RoutePrefix = "swagger";
+                });
             }
 
             app.UseHttpsRedirection();
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
-
-            app.MapStaticAssets();
-            app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}")
-                .WithStaticAssets();
-            app.MapRazorPages()
-               .WithStaticAssets();
+            app.MapControllers();
 
             app.Run();
         }
