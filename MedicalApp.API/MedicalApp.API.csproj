@@ -5,6 +5,8 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-MedicalApp.API-d8704ce8-bb26-40cd-bdd9-85e8eec46e13</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\MedicalApp</DockerfileContext>
   </PropertyGroup>
 
   <ItemGroup>

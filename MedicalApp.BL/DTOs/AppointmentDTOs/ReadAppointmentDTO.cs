@@ -17,6 +17,18 @@ namespace MedicalApp.BL.DTOs.AppointmentDTOs
         public Status Status { get; set; }
         public string DoctorName { get; set; }
         public string PatientName { get; set; }
+        public int Age
+        {
+            get
+            {
+                if (DateOfBirth == null) return 0;
+                var today = DateTime.Today;
+                var age = today.Year - DateOfBirth.Year;
+                if (DateOfBirth.Date > today.AddYears(-age)) age--;
+                return age;
+            }
+        }
+        public DateTime DateOfBirth { get; set; }
         public int PatientId { get; set; }
         public int DoctorId { get; set; }
     }

@@ -1417,3 +1417,855 @@ System.IO.IOException: Received an unexpected EOF or 0 bytes from the transport 
 2025-09-17 01:57:47.501 +03:00 [DBG] The connection queue processing loop for 0HNFLEHOVLSCP completed.
 2025-09-17 01:57:47.512 +03:00 [DBG] Connection id "0HNFLEHOVLSCP" sending FIN because: "The Socket transport's send loop completed gracefully."
 2025-09-17 01:57:47.527 +03:00 [DBG] Connection id "0HNFLEHOVLSCP" stopped.
+2025-09-17 03:54:29.041 +03:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2025-09-17 03:54:29.252 +03:00 [DBG] Hosting starting
+2025-09-17 03:54:29.270 +03:00 [INF] User profile is available. Using 'C:\Users\Al-Ahram\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-09-17 03:54:29.431 +03:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2025-09-17 03:54:30.112 +03:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserRole<string>' as the properties are already covered by the index {'UserId', 'RoleId'}.
+2025-09-17 03:54:30.115 +03:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserToken<string>' as the properties are already covered by the index {'UserId', 'LoginProvider', 'Name'}.
+2025-09-17 03:54:30.559 +03:00 [DBG] Entity Framework Core 9.0.9 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:9.0.9' with options: using lazy loading proxies EngineType=SqlServer 
+2025-09-17 03:54:30.670 +03:00 [DBG] Compiling query expression: 
+'DbSet<Appointment>()
+    .Include(a => a.Patient)
+    .Include(a => a.Doctor)
+    .Where(a => a.AppointmentDate >= __now_0 && a.AppointmentDate <= __next24Hours_1 && (int)a.Status == 0)'
+2025-09-17 03:54:30.821 +03:00 [DBG] Including navigation: 'Appointment.Patient'.
+2025-09-17 03:54:30.826 +03:00 [DBG] Including navigation: 'Appointment.Doctor'.
+2025-09-17 04:04:39.574 +03:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2025-09-17 04:04:39.672 +03:00 [DBG] Hosting starting
+2025-09-17 04:04:39.689 +03:00 [INF] User profile is available. Using 'C:\Users\Al-Ahram\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-09-17 04:04:39.773 +03:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2025-09-17 04:04:40.138 +03:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserRole<string>' as the properties are already covered by the index {'UserId', 'RoleId'}.
+2025-09-17 04:04:40.141 +03:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserToken<string>' as the properties are already covered by the index {'UserId', 'LoginProvider', 'Name'}.
+2025-09-17 04:04:40.350 +03:00 [DBG] Entity Framework Core 9.0.9 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:9.0.9' with options: using lazy loading proxies EngineType=SqlServer 
+2025-09-17 04:04:40.407 +03:00 [DBG] Compiling query expression: 
+'DbSet<Appointment>()
+    .Include(a => a.Patient)
+    .Include(a => a.Doctor)
+    .Where(a => a.AppointmentDate >= __now_0 && a.AppointmentDate <= __next24Hours_1 && (int)a.Status == 0)'
+2025-09-17 04:04:40.504 +03:00 [DBG] Including navigation: 'Appointment.Patient'.
+2025-09-17 04:04:40.509 +03:00 [DBG] Including navigation: 'Appointment.Doctor'.
+2025-09-17 04:04:40.794 +03:00 [DBG] Generated query execution expression: 
+'queryContext => SingleQueryingEnumerable.Create<Appointment>(
+    relationalQueryContext: (RelationalQueryContext)queryContext, 
+    relationalCommandResolver: parameters => [LIFTABLE Constant: RelationalCommandCache.QueryExpression(
+        Client Projections:
+            0 -> Dictionary<IProperty, int> { [Property: Appointment.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Appointment.AppointmentDate (DateTime) Required, 1], [Property: Appointment.DoctorId (int) Required FK Index, 2], [Property: Appointment.PatientId (int) Required FK Index, 3], [Property: Appointment.Reason (string) Required, 4], [Property: Appointment.Status (Status) Required, 5] }
+            1 -> Dictionary<IProperty, int> { [Property: Patient.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 6], [Property: Patient.DateOfBirth (DateTime) Required, 7], [Property: Patient.UserId (string) Required FK Index, 8] }
+            2 -> Dictionary<IProperty, int> { [Property: Doctor.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 9], [Property: Doctor.Specialization (string) Required, 10], [Property: Doctor.UserId (string) Required FK Index, 11] }
+        SELECT a.Id, a.AppointmentDate, a.DoctorId, a.PatientId, a.Reason, a.Status, p.Id, p.DateOfBirth, p.UserId, d.Id, d.Specialization, d.UserId
+        FROM Appointments AS a
+        INNER JOIN Patients AS p ON a.PatientId == p.Id
+        INNER JOIN Doctors AS d ON a.DoctorId == d.Id
+        WHERE ((a.AppointmentDate >= @__now_0) && (a.AppointmentDate <= @__next24Hours_1)) && (a.Status == 0)) | Resolver: c => new RelationalCommandCache(
+        c.Dependencies.MemoryCache, 
+        c.RelationalDependencies.QuerySqlGeneratorFactory, 
+        c.RelationalDependencies.RelationalParameterBasedSqlProcessorFactory, 
+        Client Projections:
+            0 -> Dictionary<IProperty, int> { [Property: Appointment.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Appointment.AppointmentDate (DateTime) Required, 1], [Property: Appointment.DoctorId (int) Required FK Index, 2], [Property: Appointment.PatientId (int) Required FK Index, 3], [Property: Appointment.Reason (string) Required, 4], [Property: Appointment.Status (Status) Required, 5] }
+            1 -> Dictionary<IProperty, int> { [Property: Patient.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 6], [Property: Patient.DateOfBirth (DateTime) Required, 7], [Property: Patient.UserId (string) Required FK Index, 8] }
+            2 -> Dictionary<IProperty, int> { [Property: Doctor.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 9], [Property: Doctor.Specialization (string) Required, 10], [Property: Doctor.UserId (string) Required FK Index, 11] }
+        SELECT a.Id, a.AppointmentDate, a.DoctorId, a.PatientId, a.Reason, a.Status, p.Id, p.DateOfBirth, p.UserId, d.Id, d.Specialization, d.UserId
+        FROM Appointments AS a
+        INNER JOIN Patients AS p ON a.PatientId == p.Id
+        INNER JOIN Doctors AS d ON a.DoctorId == d.Id
+        WHERE ((a.AppointmentDate >= @__now_0) && (a.AppointmentDate <= @__next24Hours_1)) && (a.Status == 0), 
+        False, 
+        new HashSet<string>(
+            new string[]{ }, 
+            StringComparer.Ordinal
+        )
+    )].GetRelationalCommandTemplate(parameters), 
+    readerColumns: null, 
+    shaper: (queryContext, dataReader, resultContext, resultCoordinator) => 
+    {
+        Appointment entity;
+        Patient entity;
+        Doctor entity;
+        entity = 
+        {
+            MaterializationContext materializationContext1;
+            IEntityType entityType1;
+            Appointment instance1;
+            InternalEntityEntry entry1;
+            bool hasNullKey1;
+            materializationContext1 = new MaterializationContext(
+                [LIFTABLE Constant: ValueBuffer | Resolver: _ => (object)ValueBuffer.Empty], 
+                queryContext.Context
+            );
+            instance1 = default(Appointment);
+            entry1 = queryContext.TryGetEntry(
+                key: [LIFTABLE Constant: Key: Appointment.Id PK | Resolver: c => c.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Appointment").FindPrimaryKey()], 
+                keyValues: new object[]{ (object)dataReader.GetInt32(0) }, 
+                throwOnNullKey: True, 
+                hasNullKey: hasNullKey1);
+            !(hasNullKey1) ? entry1 != default(InternalEntityEntry) ? 
+            {
+                entityType1 = entry1.EntityType;
+                return instance1 = (Appointment)entry1.Entity;
+            } : 
+            {
+                ISnapshot shadowSnapshot1;
+                shadowSnapshot1 = [LIFTABLE Constant: Snapshot | Resolver: _ => Snapshot.Empty];
+                entityType1 = [LIFTABLE Constant: EntityType: Appointment | Resolver: namelessParameter{0} => namelessParameter{0}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Appointment")];
+                instance1 = switch (entityType1)
+                {
+                    case [LIFTABLE Constant: EntityType: Appointment | Resolver: namelessParameter{1} => namelessParameter{1}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Appointment")]: 
+                        {
+                            return (Appointment)
+                            {
+                                AppointmentProxy instance;
+                                DbContext namelessParameter{2};
+                                IEntityType namelessParameter{3};
+                                ILazyLoader namelessParameter{4};
+                                namelessParameter{2} = materializationContext1.Context;
+                                namelessParameter{3} = (IEntityType)ParameterBindingInfo.StructuralType;
+                                namelessParameter{4} = InfrastructureExtensions.GetService<ILazyLoader>((IInfrastructure<IServiceProvider>)materializationContext1.Context);
+                                instance = (AppointmentProxy)ProxyFactory.CreateLazyLoadingProxy(
+                                    context: namelessParameter{2}, 
+                                    entityType: namelessParameter{3}, 
+                                    loader: namelessParameter{4}, 
+                                    constructorArguments: new object[]{ });
+                                instance.<Id>k__BackingField = dataReader.GetInt32(0);
+                                instance.<AppointmentDate>k__BackingField = dataReader.GetDateTime(1);
+                                instance.<DoctorId>k__BackingField = dataReader.GetInt32(2);
+                                instance.<PatientId>k__BackingField = dataReader.GetInt32(3);
+                                instance.<Reason>k__BackingField = dataReader.GetString(4);
+                                instance.<Status>k__BackingField = Invoke(((EnumToNumberConverter<Status, int>)((IReadOnlyProperty)[LIFTABLE Constant: Property: Appointment.Status (Status) Required | Resolver: namelessParameter{5} => namelessParameter{5}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Appointment").FindProperty("Status")]).GetTypeMapping().Converter).ConvertFromProviderTyped, dataReader.GetInt32(5));
+                                (instance is IInjectableService) ? ((IInjectableService)instance).Injected(
+                                    context: materializationContext1.Context, 
+                                    entity: instance, 
+                                    queryTrackingBehavior: TrackAll, 
+                                    structuralType: [LIFTABLE Constant: EntityType: Appointment | Resolver: namelessParameter{6} => namelessParameter{6}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Appointment")]) : default(void);
+                                (namelessParameter{2} is IInjectableService) ? ((IInjectableService)namelessParameter{2}).Injected(
+                                    context: materializationContext1.Context, 
+                                    entity: instance, 
+                                    queryTrackingBehavior: TrackAll, 
+                                    structuralType: [LIFTABLE Constant: EntityType: Appointment | Resolver: namelessParameter{7} => namelessParameter{7}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Appointment")]) : default(void);
+                                (namelessParameter{3} is IInjectableService) ? ((IInjectableService)namelessParameter{3}).Injected(
+                                    context: materializationContext1.Context, 
+                                    entity: instance, 
+                                    queryTrackingBehavior: TrackAll, 
+                                    structuralType: [LIFTABLE Constant: EntityType: Appointment | Resolver: namelessParameter{8} => namelessParameter{8}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Appointment")]) : default(void);
+                                (namelessParameter{4} is IInjectableService) ? ((IInjectableService)namelessParameter{4}).Injected(
+                                    context: materializationContext1.Context, 
+                                    entity: instance, 
+                                    queryTrackingBehavior: TrackAll, 
+                                    structuralType: [LIFTABLE Constant: EntityType: Appointment | Resolver: namelessParameter{9} => namelessParameter{9}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Appointment")]) : default(void);
+                                return instance;
+                            };
+                        }
+                    default: 
+                        default(Appointment)
+                }
+                ;
+                entry1 = entityType1 == default(IEntityType) ? default(InternalEntityEntry) : queryContext.StartTracking(
+                    entityType: entityType1, 
+                    entity: instance1, 
+                    snapshot: shadowSnapshot1);
+                return instance1;
+            } : default(void);
+            return instance1;
+        };
+        entity = 
+        {
+            MaterializationContext materializationContext2;
+            IEntityType entityType2;
+            Patient instance2;
+            InternalEntityEntry entry2;
+            bool hasNullKey2;
+            materializationContext2 = new MaterializationContext(
+                [LIFTABLE Constant: ValueBuffer | Resolver: _ => (object)ValueBuffer.Empty], 
+                queryContext.Context
+            );
+            instance2 = default(Patient);
+            entry2 = queryContext.TryGetEntry(
+                key: [LIFTABLE Constant: Key: Patient.Id PK | Resolver: c => c.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Patient").FindPrimaryKey()], 
+                keyValues: new object[]{ (object)dataReader.GetInt32(6) }, 
+                throwOnNullKey: True, 
+                hasNullKey: hasNullKey2);
+            !(hasNullKey2) ? entry2 != default(InternalEntityEntry) ? 
+            {
+                entityType2 = entry2.EntityType;
+                return instance2 = (Patient)entry2.Entity;
+            } : 
+            {
+                ISnapshot shadowSnapshot2;
+                shadowSnapshot2 = [LIFTABLE Constant: Snapshot | Resolver: _ => Snapshot.Empty];
+                entityType2 = [LIFTABLE Constant: EntityType: Patient | Resolver: namelessParameter{10} => namelessParameter{10}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Patient")];
+                instance2 = switch (entityType2)
+                {
+                    case [LIFTABLE Constant: EntityType: Patient | Resolver: namelessParameter{11} => namelessParameter{11}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Patient")]: 
+                        {
+                            return (Patient)
+                            {
+                                PatientProxy instance;
+                                DbContext namelessParameter{12};
+                                IEntityType namelessParameter{13};
+                                ILazyLoader namelessParameter{14};
+                                namelessParameter{12} = materializationContext2.Context;
+                                namelessParameter{13} = (IEntityType)ParameterBindingInfo.StructuralType;
+                                namelessParameter{14} = InfrastructureExtensions.GetService<ILazyLoader>((IInfrastructure<IServiceProvider>)materializationContext2.Context);
+                                instance = (PatientProxy)ProxyFactory.CreateLazyLoadingProxy(
+                                    context: namelessParameter{12}, 
+                                    entityType: namelessParameter{13}, 
+                                    loader: namelessParameter{14}, 
+                                    constructorArguments: new object[]{ });
+                                instance.<Id>k__BackingField = dataReader.GetInt32(6);
+                                instance.<DateOfBirth>k__BackingField = dataReader.GetDateTime(7);
+                                instance.<UserId>k__BackingField = dataReader.GetString(8);
+                                (instance is IInjectableService) ? ((IInjectableService)instance).Injected(
+                                    context: materializationContext2.Context, 
+                                    entity: instance, 
+                                    queryTrackingBehavior: TrackAll, 
+                                    structuralType: [LIFTABLE Constant: EntityType: Patient | Resolver: namelessParameter{15} => namelessParameter{15}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Patient")]) : default(void);
+                                (namelessParameter{12} is IInjectableService) ? ((IInjectableService)namelessParameter{12}).Injected(
+                                    context: materializationContext2.Context, 
+                                    entity: instance, 
+                                    queryTrackingBehavior: TrackAll, 
+                                    structuralType: [LIFTABLE Constant: EntityType: Patient | Resolver: namelessParameter{16} => namelessParameter{16}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Patient")]) : default(void);
+                                (namelessParameter{13} is IInjectableService) ? ((IInjectableService)namelessParameter{13}).Injected(
+                                    context: materializationContext2.Context, 
+                                    entity: instance, 
+                                    queryTrackingBehavior: TrackAll, 
+                                    structuralType: [LIFTABLE Constant: EntityType: Patient | Resolver: namelessParameter{17} => namelessParameter{17}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Patient")]) : default(void);
+                                (namelessParameter{14} is IInjectableService) ? ((IInjectableService)namelessParameter{14}).Injected(
+                                    context: materializationContext2.Context, 
+                                    entity: instance, 
+                                    queryTrackingBehavior: TrackAll, 
+                                    structuralType: [LIFTABLE Constant: EntityType: Patient | Resolver: namelessParameter{18} => namelessParameter{18}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Patient")]) : default(void);
+                                return instance;
+                            };
+                        }
+                    default: 
+                        default(Patient)
+                }
+                ;
+                entry2 = entityType2 == default(IEntityType) ? default(InternalEntityEntry) : queryContext.StartTracking(
+                    entityType: entityType2, 
+                    entity: instance2, 
+                    snapshot: shadowSnapshot2);
+                return instance2;
+            } : default(void);
+            return instance2;
+        };
+        entity = 
+        {
+            MaterializationContext materializationContext3;
+            IEntityType entityType3;
+            Doctor instance3;
+            InternalEntityEntry entry3;
+            bool hasNullKey3;
+            materializationContext3 = new MaterializationContext(
+                [LIFTABLE Constant: ValueBuffer | Resolver: _ => (object)ValueBuffer.Empty], 
+                queryContext.Context
+            );
+            instance3 = default(Doctor);
+            entry3 = queryContext.TryGetEntry(
+                key: [LIFTABLE Constant: Key: Doctor.Id PK | Resolver: c => c.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Doctor").FindPrimaryKey()], 
+                keyValues: new object[]{ (object)dataReader.GetInt32(9) }, 
+                throwOnNullKey: True, 
+                hasNullKey: hasNullKey3);
+            !(hasNullKey3) ? entry3 != default(InternalEntityEntry) ? 
+            {
+                entityType3 = entry3.EntityType;
+                return instance3 = (Doctor)entry3.Entity;
+            } : 
+            {
+                ISnapshot shadowSnapshot3;
+                shadowSnapshot3 = [LIFTABLE Constant: Snapshot | Resolver: _ => Snapshot.Empty];
+                entityType3 = [LIFTABLE Constant: EntityType: Doctor | Resolver: namelessParameter{19} => namelessParameter{19}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Doctor")];
+                instance3 = switch (entityType3)
+                {
+                    case [LIFTABLE Constant: EntityType: Doctor | Resolver: namelessParameter{20} => namelessParameter{20}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Doctor")]: 
+                        {
+                            return (Doctor)
+                            {
+                                DoctorProxy instance;
+                                DbContext namelessParameter{21};
+                                IEntityType namelessParameter{22};
+                                ILazyLoader namelessParameter{23};
+                                namelessParameter{21} = materializationContext3.Context;
+                                namelessParameter{22} = (IEntityType)ParameterBindingInfo.StructuralType;
+                                namelessParameter{23} = InfrastructureExtensions.GetService<ILazyLoader>((IInfrastructure<IServiceProvider>)materializationContext3.Context);
+                                instance = (DoctorProxy)ProxyFactory.CreateLazyLoadingProxy(
+                                    context: namelessParameter{21}, 
+                                    entityType: namelessParameter{22}, 
+                                    loader: namelessParameter{23}, 
+                                    constructorArguments: new object[]{ });
+                                instance.<Id>k__BackingField = dataReader.GetInt32(9);
+                                instance.<Specialization>k__BackingField = dataReader.GetString(10);
+                                instance.<UserId>k__BackingField = dataReader.GetString(11);
+                                (instance is IInjectableService) ? ((IInjectableService)instance).Injected(
+                                    context: materializationContext3.Context, 
+                                    entity: instance, 
+                                    queryTrackingBehavior: TrackAll, 
+                                    structuralType: [LIFTABLE Constant: EntityType: Doctor | Resolver: namelessParameter{24} => namelessParameter{24}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Doctor")]) : default(void);
+                                (namelessParameter{21} is IInjectableService) ? ((IInjectableService)namelessParameter{21}).Injected(
+                                    context: materializationContext3.Context, 
+                                    entity: instance, 
+                                    queryTrackingBehavior: TrackAll, 
+                                    structuralType: [LIFTABLE Constant: EntityType: Doctor | Resolver: namelessParameter{25} => namelessParameter{25}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Doctor")]) : default(void);
+                                (namelessParameter{22} is IInjectableService) ? ((IInjectableService)namelessParameter{22}).Injected(
+                                    context: materializationContext3.Context, 
+                                    entity: instance, 
+                                    queryTrackingBehavior: TrackAll, 
+                                    structuralType: [LIFTABLE Constant: EntityType: Doctor | Resolver: namelessParameter{26} => namelessParameter{26}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Doctor")]) : default(void);
+                                (namelessParameter{23} is IInjectableService) ? ((IInjectableService)namelessParameter{23}).Injected(
+                                    context: materializationContext3.Context, 
+                                    entity: instance, 
+                                    queryTrackingBehavior: TrackAll, 
+                                    structuralType: [LIFTABLE Constant: EntityType: Doctor | Resolver: namelessParameter{27} => namelessParameter{27}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Doctor")]) : default(void);
+                                return instance;
+                            };
+                        }
+                    default: 
+                        default(Doctor)
+                }
+                ;
+                entry3 = entityType3 == default(IEntityType) ? default(InternalEntityEntry) : queryContext.StartTracking(
+                    entityType: entityType3, 
+                    entity: instance3, 
+                    snapshot: shadowSnapshot3);
+                return instance3;
+            } : default(void);
+            return instance3;
+        };
+        ShaperProcessingExpressionVisitor.IncludeReference<Appointment, Appointment, Patient>(
+            queryContext: queryContext, 
+            entity: entity, 
+            relatedEntity: entity, 
+            navigation: [LIFTABLE Constant: Navigation: Appointment.Patient (Patient) ToPrincipal Patient PropertyAccessMode.Field | Resolver: namelessParameter{28} => namelessParameter{28}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Appointment").FindNavigation("Patient")], 
+            inverseNavigation: default(INavigation), 
+            fixup: (namelessParameter{29}, namelessParameter{30}) => 
+            {
+                return namelessParameter{29}.<Patient>k__BackingField = namelessParameter{30};
+            }, 
+            trackingQuery: True);
+        ShaperProcessingExpressionVisitor.IncludeReference<Appointment, Appointment, Doctor>(
+            queryContext: queryContext, 
+            entity: entity, 
+            relatedEntity: entity, 
+            navigation: [LIFTABLE Constant: Navigation: Appointment.Doctor (Doctor) ToPrincipal Doctor PropertyAccessMode.Field | Resolver: namelessParameter{31} => namelessParameter{31}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Appointment").FindNavigation("Doctor")], 
+            inverseNavigation: default(INavigation), 
+            fixup: (namelessParameter{32}, namelessParameter{33}) => 
+            {
+                return namelessParameter{32}.<Doctor>k__BackingField = namelessParameter{33};
+            }, 
+            trackingQuery: True);
+        return entity;
+    }, 
+    contextType: MedicalApp.DA.Models.AppDbContext, 
+    standAloneStateManager: False, 
+    detailedErrorsEnabled: False, 
+    threadSafetyChecksEnabled: True)'
+2025-09-17 04:04:40.891 +03:00 [DBG] Creating DbConnection.
+2025-09-17 04:04:40.908 +03:00 [DBG] Created DbConnection. (15ms).
+2025-09-17 04:04:40.913 +03:00 [DBG] Opening connection to database 'MedicalAppDB' on server '.'.
+2025-09-17 04:04:40.975 +03:00 [DBG] Reading data from file 'C:\Users\Al-Ahram\AppData\Local\ASP.NET\DataProtection-Keys\key-617625eb-1cdd-4dd0-affa-819c8cea976b.xml'.
+2025-09-17 04:04:40.979 +03:00 [DBG] Reading data from file 'C:\Users\Al-Ahram\AppData\Local\ASP.NET\DataProtection-Keys\key-da936a7d-2203-4320-8300-227c18d6bf64.xml'.
+2025-09-17 04:04:40.986 +03:00 [DBG] Found key {617625eb-1cdd-4dd0-affa-819c8cea976b}.
+2025-09-17 04:04:40.993 +03:00 [DBG] Found key {da936a7d-2203-4320-8300-227c18d6bf64}.
+2025-09-17 04:04:41.000 +03:00 [DBG] Considering key {617625eb-1cdd-4dd0-affa-819c8cea976b} with expiration date 2025-09-24 09:32:43Z as default key.
+2025-09-17 04:04:41.007 +03:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2025-09-17 04:04:41.009 +03:00 [DBG] Decrypting secret element using Windows DPAPI.
+2025-09-17 04:04:41.013 +03:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2025-09-17 04:04:41.017 +03:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2025-09-17 04:04:41.022 +03:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2025-09-17 04:04:41.026 +03:00 [DBG] Using key {617625eb-1cdd-4dd0-affa-819c8cea976b} as the default key.
+2025-09-17 04:04:41.028 +03:00 [DBG] Key ring with default key {617625eb-1cdd-4dd0-affa-819c8cea976b} was loaded during application startup.
+2025-09-17 04:04:41.069 +03:00 [DBG] Middleware configuration started with options: {AllowedHosts = *, AllowEmptyHosts = True, IncludeFailureMessage = True}
+2025-09-17 04:04:41.072 +03:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2025-09-17 04:04:41.128 +03:00 [DBG] Opened connection to database 'MedicalAppDB' on server '.'.
+2025-09-17 04:04:41.133 +03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-09-17 04:04:41.142 +03:00 [DBG] Created DbCommand for 'ExecuteReader' (5ms).
+2025-09-17 04:04:41.147 +03:00 [INF] Now listening on: https://localhost:7061
+2025-09-17 04:04:41.151 +03:00 [INF] Now listening on: http://localhost:5100
+2025-09-17 04:04:41.153 +03:00 [DBG] Loaded hosting startup assembly MedicalApp.API
+2025-09-17 04:04:41.154 +03:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.ApiEndpointDiscovery
+2025-09-17 04:04:41.155 +03:00 [DBG] Initialized DbCommand for 'ExecuteReader' (21ms).
+2025-09-17 04:04:41.156 +03:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2025-09-17 04:04:41.159 +03:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2025-09-17 04:04:41.165 +03:00 [DBG] Executing API description provider 'EndpointMetadataApiDescriptionProvider' from assembly Microsoft.AspNetCore.Mvc.ApiExplorer v9.0.0.0.
+2025-09-17 04:04:41.168 +03:00 [DBG] Executing API description provider 'DefaultApiDescriptionProvider' from assembly Microsoft.AspNetCore.Mvc.ApiExplorer v9.0.0.0.
+2025-09-17 04:04:41.168 +03:00 [DBG] Executing DbCommand [Parameters=[@__now_0='?' (DbType = DateTime2), @__next24Hours_1='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AppointmentDate], [a].[DoctorId], [a].[PatientId], [a].[Reason], [a].[Status], [p].[Id], [p].[DateOfBirth], [p].[UserId], [d].[Id], [d].[Specialization], [d].[UserId]
+FROM [Appointments] AS [a]
+INNER JOIN [Patients] AS [p] ON [a].[PatientId] = [p].[Id]
+INNER JOIN [Doctors] AS [d] ON [a].[DoctorId] = [d].[Id]
+WHERE [a].[AppointmentDate] >= @__now_0 AND [a].[AppointmentDate] <= @__next24Hours_1 AND [a].[Status] = 0
+2025-09-17 04:04:41.259 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-17 04:04:41.261 +03:00 [INF] Hosting environment: Development
+2025-09-17 04:04:41.262 +03:00 [INF] Content root path: G:\ITI\AfterGrad\Ramyro-Task\Backend\MedicalApp.API
+2025-09-17 04:04:41.264 +03:00 [DBG] Hosting started
+2025-09-17 04:04:41.278 +03:00 [INF] Executed DbCommand (103ms) [Parameters=[@__now_0='?' (DbType = DateTime2), @__next24Hours_1='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AppointmentDate], [a].[DoctorId], [a].[PatientId], [a].[Reason], [a].[Status], [p].[Id], [p].[DateOfBirth], [p].[UserId], [d].[Id], [d].[Specialization], [d].[UserId]
+FROM [Appointments] AS [a]
+INNER JOIN [Patients] AS [p] ON [a].[PatientId] = [p].[Id]
+INNER JOIN [Doctors] AS [d] ON [a].[DoctorId] = [d].[Id]
+WHERE [a].[AppointmentDate] >= @__now_0 AND [a].[AppointmentDate] <= @__next24Hours_1 AND [a].[Status] = 0
+2025-09-17 04:04:41.301 +03:00 [DBG] Closing data reader to 'MedicalAppDB' on server '.'.
+2025-09-17 04:04:41.309 +03:00 [DBG] A data reader for 'MedicalAppDB' on server '.' is being disposed after spending 22ms reading results.
+2025-09-17 04:04:41.314 +03:00 [DBG] Closing connection to database 'MedicalAppDB' on server '.'.
+2025-09-17 04:04:41.321 +03:00 [DBG] Closed connection to database 'MedicalAppDB' on server '.' (6ms).
+2025-09-17 04:04:41.325 +03:00 [DBG] 'AppDbContext' disposed.
+2025-09-17 04:04:41.334 +03:00 [DBG] Disposing connection to database 'MedicalAppDB' on server '.'.
+2025-09-17 04:04:41.337 +03:00 [DBG] Disposed connection to database '' on server '' (2ms).
+2025-09-17 04:04:41.546 +03:00 [DBG] Connection id "0HNFLGONC6R84" accepted.
+2025-09-17 04:04:41.546 +03:00 [DBG] Connection id "0HNFLGONC6R85" accepted.
+2025-09-17 04:04:41.549 +03:00 [DBG] Connection id "0HNFLGONC6R84" started.
+2025-09-17 04:04:41.550 +03:00 [DBG] Connection id "0HNFLGONC6R85" started.
+2025-09-17 04:04:41.572 +03:00 [DBG] Connection id "0HNFLGONC6R85" received FIN.
+2025-09-17 04:04:41.572 +03:00 [DBG] Connection id "0HNFLGONC6R84" received FIN.
+2025-09-17 04:04:41.578 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveHandshakeFrameAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2025-09-17 04:04:41.578 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveHandshakeFrameAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2025-09-17 04:04:41.590 +03:00 [DBG] Connection id "0HNFLGONC6R85" stopped.
+2025-09-17 04:04:41.591 +03:00 [DBG] Connection id "0HNFLGONC6R84" stopped.
+2025-09-17 04:04:41.594 +03:00 [DBG] Connection id "0HNFLGONC6R85" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-09-17 04:04:41.594 +03:00 [DBG] Connection id "0HNFLGONC6R84" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-09-17 04:04:41.824 +03:00 [DBG] Connection id "0HNFLGONC6R86" accepted.
+2025-09-17 04:04:41.826 +03:00 [DBG] Connection id "0HNFLGONC6R86" started.
+2025-09-17 04:04:41.889 +03:00 [DBG] Connection 0HNFLGONC6R86 established using the following protocol: "Tls12"
+2025-09-17 04:04:41.959 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2025-09-17 04:04:42.196 +03:00 [DBG] No candidates found for the request path '/'
+2025-09-17 04:04:42.198 +03:00 [DBG] Request did not match any endpoints
+2025-09-17 04:04:42.229 +03:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2025-09-17 04:04:42.239 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 404 0 null 284.2322ms
+2025-09-17 04:04:42.258 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/, Response status code: 404
+2025-09-17 04:04:45.277 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-17 04:04:45.277 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2025-09-17 04:04:45.292 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13780 application/javascript; charset=utf-8 14.4497ms
+2025-09-17 04:04:45.353 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 76.1613ms
+2025-09-17 04:04:45.396 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7061/swagger/v1/swagger.json - null null
+2025-09-17 04:04:45.583 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7061/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 187.2763ms
+2025-09-17 04:04:58.652 +03:00 [DBG] Connection id "0HNFLGONC6R86" received FIN.
+2025-09-17 04:04:58.657 +03:00 [DBG] Connection id "0HNFLGONC6R86" is closed. The last processed stream ID was 7.
+2025-09-17 04:04:58.657 +03:00 [DBG] The connection queue processing loop for 0HNFLGONC6R86 completed.
+2025-09-17 04:04:58.660 +03:00 [DBG] Connection id "0HNFLGONC6R86" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-09-17 04:04:58.677 +03:00 [DBG] Connection id "0HNFLGONC6R86" stopped.
+2025-09-17 04:45:20.888 +03:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2025-09-17 04:45:21.123 +03:00 [DBG] Hosting starting
+2025-09-17 04:45:21.152 +03:00 [INF] User profile is available. Using 'C:\Users\Al-Ahram\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-09-17 04:45:21.474 +03:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2025-09-17 04:45:22.249 +03:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserRole<string>' as the properties are already covered by the index {'UserId', 'RoleId'}.
+2025-09-17 04:45:22.252 +03:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserToken<string>' as the properties are already covered by the index {'UserId', 'LoginProvider', 'Name'}.
+2025-09-17 04:45:22.705 +03:00 [DBG] Entity Framework Core 9.0.9 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:9.0.9' with options: using lazy loading proxies EngineType=SqlServer 
+2025-09-17 04:45:22.856 +03:00 [DBG] Compiling query expression: 
+'DbSet<Appointment>()
+    .Include(a => a.Patient)
+    .Include(a => a.Doctor)
+    .Where(a => a.AppointmentDate >= __now_0 && a.AppointmentDate <= __next24Hours_1 && (int)a.Status == 0)'
+2025-09-17 04:45:22.969 +03:00 [DBG] Including navigation: 'Appointment.Patient'.
+2025-09-17 04:45:22.972 +03:00 [DBG] Including navigation: 'Appointment.Doctor'.
+2025-09-17 04:45:23.610 +03:00 [DBG] Generated query execution expression: 
+'queryContext => SingleQueryingEnumerable.Create<Appointment>(
+    relationalQueryContext: (RelationalQueryContext)queryContext, 
+    relationalCommandResolver: parameters => [LIFTABLE Constant: RelationalCommandCache.QueryExpression(
+        Client Projections:
+            0 -> Dictionary<IProperty, int> { [Property: Appointment.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Appointment.AppointmentDate (DateTime) Required, 1], [Property: Appointment.DoctorId (int) Required FK Index, 2], [Property: Appointment.PatientId (int) Required FK Index, 3], [Property: Appointment.Reason (string) Required, 4], [Property: Appointment.Status (Status) Required, 5] }
+            1 -> Dictionary<IProperty, int> { [Property: Patient.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 6], [Property: Patient.DateOfBirth (DateTime) Required, 7], [Property: Patient.UserId (string) Required FK Index, 8] }
+            2 -> Dictionary<IProperty, int> { [Property: Doctor.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 9], [Property: Doctor.Specialization (string) Required, 10], [Property: Doctor.UserId (string) Required FK Index, 11] }
+        SELECT a.Id, a.AppointmentDate, a.DoctorId, a.PatientId, a.Reason, a.Status, p.Id, p.DateOfBirth, p.UserId, d.Id, d.Specialization, d.UserId
+        FROM Appointments AS a
+        INNER JOIN Patients AS p ON a.PatientId == p.Id
+        INNER JOIN Doctors AS d ON a.DoctorId == d.Id
+        WHERE ((a.AppointmentDate >= @__now_0) && (a.AppointmentDate <= @__next24Hours_1)) && (a.Status == 0)) | Resolver: c => new RelationalCommandCache(
+        c.Dependencies.MemoryCache, 
+        c.RelationalDependencies.QuerySqlGeneratorFactory, 
+        c.RelationalDependencies.RelationalParameterBasedSqlProcessorFactory, 
+        Client Projections:
+            0 -> Dictionary<IProperty, int> { [Property: Appointment.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Appointment.AppointmentDate (DateTime) Required, 1], [Property: Appointment.DoctorId (int) Required FK Index, 2], [Property: Appointment.PatientId (int) Required FK Index, 3], [Property: Appointment.Reason (string) Required, 4], [Property: Appointment.Status (Status) Required, 5] }
+            1 -> Dictionary<IProperty, int> { [Property: Patient.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 6], [Property: Patient.DateOfBirth (DateTime) Required, 7], [Property: Patient.UserId (string) Required FK Index, 8] }
+            2 -> Dictionary<IProperty, int> { [Property: Doctor.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 9], [Property: Doctor.Specialization (string) Required, 10], [Property: Doctor.UserId (string) Required FK Index, 11] }
+        SELECT a.Id, a.AppointmentDate, a.DoctorId, a.PatientId, a.Reason, a.Status, p.Id, p.DateOfBirth, p.UserId, d.Id, d.Specialization, d.UserId
+        FROM Appointments AS a
+        INNER JOIN Patients AS p ON a.PatientId == p.Id
+        INNER JOIN Doctors AS d ON a.DoctorId == d.Id
+        WHERE ((a.AppointmentDate >= @__now_0) && (a.AppointmentDate <= @__next24Hours_1)) && (a.Status == 0), 
+        False, 
+        new HashSet<string>(
+            new string[]{ }, 
+            StringComparer.Ordinal
+        )
+    )].GetRelationalCommandTemplate(parameters), 
+    readerColumns: null, 
+    shaper: (queryContext, dataReader, resultContext, resultCoordinator) => 
+    {
+        Appointment entity;
+        Patient entity;
+        Doctor entity;
+        entity = 
+        {
+            MaterializationContext materializationContext1;
+            IEntityType entityType1;
+            Appointment instance1;
+            InternalEntityEntry entry1;
+            bool hasNullKey1;
+            materializationContext1 = new MaterializationContext(
+                [LIFTABLE Constant: ValueBuffer | Resolver: _ => (object)ValueBuffer.Empty], 
+                queryContext.Context
+            );
+            instance1 = default(Appointment);
+            entry1 = queryContext.TryGetEntry(
+                key: [LIFTABLE Constant: Key: Appointment.Id PK | Resolver: c => c.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Appointment").FindPrimaryKey()], 
+                keyValues: new object[]{ (object)dataReader.GetInt32(0) }, 
+                throwOnNullKey: True, 
+                hasNullKey: hasNullKey1);
+            !(hasNullKey1) ? entry1 != default(InternalEntityEntry) ? 
+            {
+                entityType1 = entry1.EntityType;
+                return instance1 = (Appointment)entry1.Entity;
+            } : 
+            {
+                ISnapshot shadowSnapshot1;
+                shadowSnapshot1 = [LIFTABLE Constant: Snapshot | Resolver: _ => Snapshot.Empty];
+                entityType1 = [LIFTABLE Constant: EntityType: Appointment | Resolver: namelessParameter{0} => namelessParameter{0}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Appointment")];
+                instance1 = switch (entityType1)
+                {
+                    case [LIFTABLE Constant: EntityType: Appointment | Resolver: namelessParameter{1} => namelessParameter{1}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Appointment")]: 
+                        {
+                            return (Appointment)
+                            {
+                                AppointmentProxy instance;
+                                DbContext namelessParameter{2};
+                                IEntityType namelessParameter{3};
+                                ILazyLoader namelessParameter{4};
+                                namelessParameter{2} = materializationContext1.Context;
+                                namelessParameter{3} = (IEntityType)ParameterBindingInfo.StructuralType;
+                                namelessParameter{4} = InfrastructureExtensions.GetService<ILazyLoader>((IInfrastructure<IServiceProvider>)materializationContext1.Context);
+                                instance = (AppointmentProxy)ProxyFactory.CreateLazyLoadingProxy(
+                                    context: namelessParameter{2}, 
+                                    entityType: namelessParameter{3}, 
+                                    loader: namelessParameter{4}, 
+                                    constructorArguments: new object[]{ });
+                                instance.<Id>k__BackingField = dataReader.GetInt32(0);
+                                instance.<AppointmentDate>k__BackingField = dataReader.GetDateTime(1);
+                                instance.<DoctorId>k__BackingField = dataReader.GetInt32(2);
+                                instance.<PatientId>k__BackingField = dataReader.GetInt32(3);
+                                instance.<Reason>k__BackingField = dataReader.GetString(4);
+                                instance.<Status>k__BackingField = Invoke(((EnumToNumberConverter<Status, int>)((IReadOnlyProperty)[LIFTABLE Constant: Property: Appointment.Status (Status) Required | Resolver: namelessParameter{5} => namelessParameter{5}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Appointment").FindProperty("Status")]).GetTypeMapping().Converter).ConvertFromProviderTyped, dataReader.GetInt32(5));
+                                (instance is IInjectableService) ? ((IInjectableService)instance).Injected(
+                                    context: materializationContext1.Context, 
+                                    entity: instance, 
+                                    queryTrackingBehavior: TrackAll, 
+                                    structuralType: [LIFTABLE Constant: EntityType: Appointment | Resolver: namelessParameter{6} => namelessParameter{6}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Appointment")]) : default(void);
+                                (namelessParameter{2} is IInjectableService) ? ((IInjectableService)namelessParameter{2}).Injected(
+                                    context: materializationContext1.Context, 
+                                    entity: instance, 
+                                    queryTrackingBehavior: TrackAll, 
+                                    structuralType: [LIFTABLE Constant: EntityType: Appointment | Resolver: namelessParameter{7} => namelessParameter{7}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Appointment")]) : default(void);
+                                (namelessParameter{3} is IInjectableService) ? ((IInjectableService)namelessParameter{3}).Injected(
+                                    context: materializationContext1.Context, 
+                                    entity: instance, 
+                                    queryTrackingBehavior: TrackAll, 
+                                    structuralType: [LIFTABLE Constant: EntityType: Appointment | Resolver: namelessParameter{8} => namelessParameter{8}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Appointment")]) : default(void);
+                                (namelessParameter{4} is IInjectableService) ? ((IInjectableService)namelessParameter{4}).Injected(
+                                    context: materializationContext1.Context, 
+                                    entity: instance, 
+                                    queryTrackingBehavior: TrackAll, 
+                                    structuralType: [LIFTABLE Constant: EntityType: Appointment | Resolver: namelessParameter{9} => namelessParameter{9}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Appointment")]) : default(void);
+                                return instance;
+                            };
+                        }
+                    default: 
+                        default(Appointment)
+                }
+                ;
+                entry1 = entityType1 == default(IEntityType) ? default(InternalEntityEntry) : queryContext.StartTracking(
+                    entityType: entityType1, 
+                    entity: instance1, 
+                    snapshot: shadowSnapshot1);
+                return instance1;
+            } : default(void);
+            return instance1;
+        };
+        entity = 
+        {
+            MaterializationContext materializationContext2;
+            IEntityType entityType2;
+            Patient instance2;
+            InternalEntityEntry entry2;
+            bool hasNullKey2;
+            materializationContext2 = new MaterializationContext(
+                [LIFTABLE Constant: ValueBuffer | Resolver: _ => (object)ValueBuffer.Empty], 
+                queryContext.Context
+            );
+            instance2 = default(Patient);
+            entry2 = queryContext.TryGetEntry(
+                key: [LIFTABLE Constant: Key: Patient.Id PK | Resolver: c => c.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Patient").FindPrimaryKey()], 
+                keyValues: new object[]{ (object)dataReader.GetInt32(6) }, 
+                throwOnNullKey: True, 
+                hasNullKey: hasNullKey2);
+            !(hasNullKey2) ? entry2 != default(InternalEntityEntry) ? 
+            {
+                entityType2 = entry2.EntityType;
+                return instance2 = (Patient)entry2.Entity;
+            } : 
+            {
+                ISnapshot shadowSnapshot2;
+                shadowSnapshot2 = [LIFTABLE Constant: Snapshot | Resolver: _ => Snapshot.Empty];
+                entityType2 = [LIFTABLE Constant: EntityType: Patient | Resolver: namelessParameter{10} => namelessParameter{10}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Patient")];
+                instance2 = switch (entityType2)
+                {
+                    case [LIFTABLE Constant: EntityType: Patient | Resolver: namelessParameter{11} => namelessParameter{11}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Patient")]: 
+                        {
+                            return (Patient)
+                            {
+                                PatientProxy instance;
+                                DbContext namelessParameter{12};
+                                IEntityType namelessParameter{13};
+                                ILazyLoader namelessParameter{14};
+                                namelessParameter{12} = materializationContext2.Context;
+                                namelessParameter{13} = (IEntityType)ParameterBindingInfo.StructuralType;
+                                namelessParameter{14} = InfrastructureExtensions.GetService<ILazyLoader>((IInfrastructure<IServiceProvider>)materializationContext2.Context);
+                                instance = (PatientProxy)ProxyFactory.CreateLazyLoadingProxy(
+                                    context: namelessParameter{12}, 
+                                    entityType: namelessParameter{13}, 
+                                    loader: namelessParameter{14}, 
+                                    constructorArguments: new object[]{ });
+                                instance.<Id>k__BackingField = dataReader.GetInt32(6);
+                                instance.<DateOfBirth>k__BackingField = dataReader.GetDateTime(7);
+                                instance.<UserId>k__BackingField = dataReader.GetString(8);
+                                (instance is IInjectableService) ? ((IInjectableService)instance).Injected(
+                                    context: materializationContext2.Context, 
+                                    entity: instance, 
+                                    queryTrackingBehavior: TrackAll, 
+                                    structuralType: [LIFTABLE Constant: EntityType: Patient | Resolver: namelessParameter{15} => namelessParameter{15}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Patient")]) : default(void);
+                                (namelessParameter{12} is IInjectableService) ? ((IInjectableService)namelessParameter{12}).Injected(
+                                    context: materializationContext2.Context, 
+                                    entity: instance, 
+                                    queryTrackingBehavior: TrackAll, 
+                                    structuralType: [LIFTABLE Constant: EntityType: Patient | Resolver: namelessParameter{16} => namelessParameter{16}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Patient")]) : default(void);
+                                (namelessParameter{13} is IInjectableService) ? ((IInjectableService)namelessParameter{13}).Injected(
+                                    context: materializationContext2.Context, 
+                                    entity: instance, 
+                                    queryTrackingBehavior: TrackAll, 
+                                    structuralType: [LIFTABLE Constant: EntityType: Patient | Resolver: namelessParameter{17} => namelessParameter{17}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Patient")]) : default(void);
+                                (namelessParameter{14} is IInjectableService) ? ((IInjectableService)namelessParameter{14}).Injected(
+                                    context: materializationContext2.Context, 
+                                    entity: instance, 
+                                    queryTrackingBehavior: TrackAll, 
+                                    structuralType: [LIFTABLE Constant: EntityType: Patient | Resolver: namelessParameter{18} => namelessParameter{18}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Patient")]) : default(void);
+                                return instance;
+                            };
+                        }
+                    default: 
+                        default(Patient)
+                }
+                ;
+                entry2 = entityType2 == default(IEntityType) ? default(InternalEntityEntry) : queryContext.StartTracking(
+                    entityType: entityType2, 
+                    entity: instance2, 
+                    snapshot: shadowSnapshot2);
+                return instance2;
+            } : default(void);
+            return instance2;
+        };
+        entity = 
+        {
+            MaterializationContext materializationContext3;
+            IEntityType entityType3;
+            Doctor instance3;
+            InternalEntityEntry entry3;
+            bool hasNullKey3;
+            materializationContext3 = new MaterializationContext(
+                [LIFTABLE Constant: ValueBuffer | Resolver: _ => (object)ValueBuffer.Empty], 
+                queryContext.Context
+            );
+            instance3 = default(Doctor);
+            entry3 = queryContext.TryGetEntry(
+                key: [LIFTABLE Constant: Key: Doctor.Id PK | Resolver: c => c.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Doctor").FindPrimaryKey()], 
+                keyValues: new object[]{ (object)dataReader.GetInt32(9) }, 
+                throwOnNullKey: True, 
+                hasNullKey: hasNullKey3);
+            !(hasNullKey3) ? entry3 != default(InternalEntityEntry) ? 
+            {
+                entityType3 = entry3.EntityType;
+                return instance3 = (Doctor)entry3.Entity;
+            } : 
+            {
+                ISnapshot shadowSnapshot3;
+                shadowSnapshot3 = [LIFTABLE Constant: Snapshot | Resolver: _ => Snapshot.Empty];
+                entityType3 = [LIFTABLE Constant: EntityType: Doctor | Resolver: namelessParameter{19} => namelessParameter{19}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Doctor")];
+                instance3 = switch (entityType3)
+                {
+                    case [LIFTABLE Constant: EntityType: Doctor | Resolver: namelessParameter{20} => namelessParameter{20}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Doctor")]: 
+                        {
+                            return (Doctor)
+                            {
+                                DoctorProxy instance;
+                                DbContext namelessParameter{21};
+                                IEntityType namelessParameter{22};
+                                ILazyLoader namelessParameter{23};
+                                namelessParameter{21} = materializationContext3.Context;
+                                namelessParameter{22} = (IEntityType)ParameterBindingInfo.StructuralType;
+                                namelessParameter{23} = InfrastructureExtensions.GetService<ILazyLoader>((IInfrastructure<IServiceProvider>)materializationContext3.Context);
+                                instance = (DoctorProxy)ProxyFactory.CreateLazyLoadingProxy(
+                                    context: namelessParameter{21}, 
+                                    entityType: namelessParameter{22}, 
+                                    loader: namelessParameter{23}, 
+                                    constructorArguments: new object[]{ });
+                                instance.<Id>k__BackingField = dataReader.GetInt32(9);
+                                instance.<Specialization>k__BackingField = dataReader.GetString(10);
+                                instance.<UserId>k__BackingField = dataReader.GetString(11);
+                                (instance is IInjectableService) ? ((IInjectableService)instance).Injected(
+                                    context: materializationContext3.Context, 
+                                    entity: instance, 
+                                    queryTrackingBehavior: TrackAll, 
+                                    structuralType: [LIFTABLE Constant: EntityType: Doctor | Resolver: namelessParameter{24} => namelessParameter{24}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Doctor")]) : default(void);
+                                (namelessParameter{21} is IInjectableService) ? ((IInjectableService)namelessParameter{21}).Injected(
+                                    context: materializationContext3.Context, 
+                                    entity: instance, 
+                                    queryTrackingBehavior: TrackAll, 
+                                    structuralType: [LIFTABLE Constant: EntityType: Doctor | Resolver: namelessParameter{25} => namelessParameter{25}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Doctor")]) : default(void);
+                                (namelessParameter{22} is IInjectableService) ? ((IInjectableService)namelessParameter{22}).Injected(
+                                    context: materializationContext3.Context, 
+                                    entity: instance, 
+                                    queryTrackingBehavior: TrackAll, 
+                                    structuralType: [LIFTABLE Constant: EntityType: Doctor | Resolver: namelessParameter{26} => namelessParameter{26}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Doctor")]) : default(void);
+                                (namelessParameter{23} is IInjectableService) ? ((IInjectableService)namelessParameter{23}).Injected(
+                                    context: materializationContext3.Context, 
+                                    entity: instance, 
+                                    queryTrackingBehavior: TrackAll, 
+                                    structuralType: [LIFTABLE Constant: EntityType: Doctor | Resolver: namelessParameter{27} => namelessParameter{27}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Doctor")]) : default(void);
+                                return instance;
+                            };
+                        }
+                    default: 
+                        default(Doctor)
+                }
+                ;
+                entry3 = entityType3 == default(IEntityType) ? default(InternalEntityEntry) : queryContext.StartTracking(
+                    entityType: entityType3, 
+                    entity: instance3, 
+                    snapshot: shadowSnapshot3);
+                return instance3;
+            } : default(void);
+            return instance3;
+        };
+        ShaperProcessingExpressionVisitor.IncludeReference<Appointment, Appointment, Patient>(
+            queryContext: queryContext, 
+            entity: entity, 
+            relatedEntity: entity, 
+            navigation: [LIFTABLE Constant: Navigation: Appointment.Patient (Patient) ToPrincipal Patient PropertyAccessMode.Field | Resolver: namelessParameter{28} => namelessParameter{28}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Appointment").FindNavigation("Patient")], 
+            inverseNavigation: default(INavigation), 
+            fixup: (namelessParameter{29}, namelessParameter{30}) => 
+            {
+                return namelessParameter{29}.<Patient>k__BackingField = namelessParameter{30};
+            }, 
+            trackingQuery: True);
+        ShaperProcessingExpressionVisitor.IncludeReference<Appointment, Appointment, Doctor>(
+            queryContext: queryContext, 
+            entity: entity, 
+            relatedEntity: entity, 
+            navigation: [LIFTABLE Constant: Navigation: Appointment.Doctor (Doctor) ToPrincipal Doctor PropertyAccessMode.Field | Resolver: namelessParameter{31} => namelessParameter{31}.Dependencies.Model.FindEntityType("MedicalApp.DA.Models.Appointment").FindNavigation("Doctor")], 
+            inverseNavigation: default(INavigation), 
+            fixup: (namelessParameter{32}, namelessParameter{33}) => 
+            {
+                return namelessParameter{32}.<Doctor>k__BackingField = namelessParameter{33};
+            }, 
+            trackingQuery: True);
+        return entity;
+    }, 
+    contextType: MedicalApp.DA.Models.AppDbContext, 
+    standAloneStateManager: False, 
+    detailedErrorsEnabled: False, 
+    threadSafetyChecksEnabled: True)'
+2025-09-17 04:45:23.834 +03:00 [DBG] Creating DbConnection.
+2025-09-17 04:45:23.864 +03:00 [DBG] Created DbConnection. (28ms).
+2025-09-17 04:45:23.869 +03:00 [DBG] Opening connection to database 'MedicalAppDB' on server '.'.
+2025-09-17 04:45:24.092 +03:00 [DBG] Reading data from file 'C:\Users\Al-Ahram\AppData\Local\ASP.NET\DataProtection-Keys\key-617625eb-1cdd-4dd0-affa-819c8cea976b.xml'.
+2025-09-17 04:45:24.098 +03:00 [DBG] Reading data from file 'C:\Users\Al-Ahram\AppData\Local\ASP.NET\DataProtection-Keys\key-da936a7d-2203-4320-8300-227c18d6bf64.xml'.
+2025-09-17 04:45:24.109 +03:00 [DBG] Found key {617625eb-1cdd-4dd0-affa-819c8cea976b}.
+2025-09-17 04:45:24.120 +03:00 [DBG] Found key {da936a7d-2203-4320-8300-227c18d6bf64}.
+2025-09-17 04:45:24.131 +03:00 [DBG] Considering key {617625eb-1cdd-4dd0-affa-819c8cea976b} with expiration date 2025-09-24 09:32:43Z as default key.
+2025-09-17 04:45:24.153 +03:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2025-09-17 04:45:24.158 +03:00 [DBG] Decrypting secret element using Windows DPAPI.
+2025-09-17 04:45:24.161 +03:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2025-09-17 04:45:24.167 +03:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2025-09-17 04:45:24.175 +03:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2025-09-17 04:45:24.182 +03:00 [DBG] Using key {617625eb-1cdd-4dd0-affa-819c8cea976b} as the default key.
+2025-09-17 04:45:24.189 +03:00 [DBG] Key ring with default key {617625eb-1cdd-4dd0-affa-819c8cea976b} was loaded during application startup.
+2025-09-17 04:45:24.317 +03:00 [DBG] Middleware configuration started with options: {AllowedHosts = *, AllowEmptyHosts = True, IncludeFailureMessage = True}
+2025-09-17 04:45:24.430 +03:00 [DBG] Opened connection to database 'MedicalAppDB' on server '.'.
+2025-09-17 04:45:24.440 +03:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2025-09-17 04:45:24.446 +03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-09-17 04:45:24.617 +03:00 [INF] Now listening on: https://localhost:7061
+2025-09-17 04:45:24.697 +03:00 [INF] Now listening on: http://localhost:5100
+2025-09-17 04:45:24.699 +03:00 [DBG] Loaded hosting startup assembly MedicalApp.API
+2025-09-17 04:45:24.702 +03:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.ApiEndpointDiscovery
+2025-09-17 04:45:24.707 +03:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2025-09-17 04:45:24.710 +03:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2025-09-17 04:45:24.710 +03:00 [DBG] Created DbCommand for 'ExecuteReader' (251ms).
+2025-09-17 04:45:24.718 +03:00 [DBG] Executing API description provider 'EndpointMetadataApiDescriptionProvider' from assembly Microsoft.AspNetCore.Mvc.ApiExplorer v9.0.0.0.
+2025-09-17 04:45:24.726 +03:00 [DBG] Executing API description provider 'DefaultApiDescriptionProvider' from assembly Microsoft.AspNetCore.Mvc.ApiExplorer v9.0.0.0.
+2025-09-17 04:45:24.728 +03:00 [DBG] Initialized DbCommand for 'ExecuteReader' (282ms).
+2025-09-17 04:45:24.762 +03:00 [DBG] Executing DbCommand [Parameters=[@__now_0='?' (DbType = DateTime2), @__next24Hours_1='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AppointmentDate], [a].[DoctorId], [a].[PatientId], [a].[Reason], [a].[Status], [p].[Id], [p].[DateOfBirth], [p].[UserId], [d].[Id], [d].[Specialization], [d].[UserId]
+FROM [Appointments] AS [a]
+INNER JOIN [Patients] AS [p] ON [a].[PatientId] = [p].[Id]
+INNER JOIN [Doctors] AS [d] ON [a].[DoctorId] = [d].[Id]
+WHERE [a].[AppointmentDate] >= @__now_0 AND [a].[AppointmentDate] <= @__next24Hours_1 AND [a].[Status] = 0
+2025-09-17 04:45:24.800 +03:00 [DBG] Connection id "0HNFLHFFGSOPB" accepted.
+2025-09-17 04:45:24.818 +03:00 [DBG] Connection id "0HNFLHFFGSOPB" received FIN.
+2025-09-17 04:45:24.889 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-17 04:45:24.958 +03:00 [INF] Hosting environment: Development
+2025-09-17 04:45:24.961 +03:00 [INF] Content root path: G:\ITI\AfterGrad\Ramyro-Task\Backend\MedicalApp.API
+2025-09-17 04:45:24.964 +03:00 [DBG] Hosting started
+2025-09-17 04:45:24.955 +03:00 [DBG] Connection id "0HNFLHFFGSOPB" started.
+2025-09-17 04:45:24.995 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveHandshakeFrameAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2025-09-17 04:45:25.238 +03:00 [DBG] Connection id "0HNFLHFFGSOPB" stopped.
+2025-09-17 04:45:25.517 +03:00 [DBG] Connection id "0HNFLHFFGSOPB" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-09-17 04:45:25.623 +03:00 [INF] Executed DbCommand (830ms) [Parameters=[@__now_0='?' (DbType = DateTime2), @__next24Hours_1='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AppointmentDate], [a].[DoctorId], [a].[PatientId], [a].[Reason], [a].[Status], [p].[Id], [p].[DateOfBirth], [p].[UserId], [d].[Id], [d].[Specialization], [d].[UserId]
+FROM [Appointments] AS [a]
+INNER JOIN [Patients] AS [p] ON [a].[PatientId] = [p].[Id]
+INNER JOIN [Doctors] AS [d] ON [a].[DoctorId] = [d].[Id]
+WHERE [a].[AppointmentDate] >= @__now_0 AND [a].[AppointmentDate] <= @__next24Hours_1 AND [a].[Status] = 0
+2025-09-17 04:45:25.710 +03:00 [DBG] Closing data reader to 'MedicalAppDB' on server '.'.
+2025-09-17 04:45:25.747 +03:00 [DBG] Connection id "0HNFLHFFGSOPC" accepted.
+2025-09-17 04:45:25.764 +03:00 [DBG] A data reader for 'MedicalAppDB' on server '.' is being disposed after spending 77ms reading results.
+2025-09-17 04:45:25.774 +03:00 [DBG] Connection id "0HNFLHFFGSOPC" started.
+2025-09-17 04:45:25.781 +03:00 [DBG] Closing connection to database 'MedicalAppDB' on server '.'.
+2025-09-17 04:45:25.795 +03:00 [DBG] Closed connection to database 'MedicalAppDB' on server '.' (13ms).
+2025-09-17 04:45:25.800 +03:00 [DBG] 'AppDbContext' disposed.
+2025-09-17 04:45:25.808 +03:00 [DBG] Disposing connection to database 'MedicalAppDB' on server '.'.
+2025-09-17 04:45:25.813 +03:00 [DBG] Disposed connection to database '' on server '' (3ms).
+2025-09-17 04:45:25.847 +03:00 [DBG] Connection 0HNFLHFFGSOPC established using the following protocol: "Tls12"
+2025-09-17 04:45:25.998 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7061/ - null null
+2025-09-17 04:45:26.609 +03:00 [DBG] No candidates found for the request path '/'
+2025-09-17 04:45:26.612 +03:00 [DBG] Request did not match any endpoints
+2025-09-17 04:45:26.803 +03:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2025-09-17 04:45:26.849 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7061/ - 404 0 null 854.6466ms
+2025-09-17 04:45:26.980 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7061/, Response status code: 404
+2025-09-17 04:45:31.696 +03:00 [DBG] Connection id "0HNFLHFFGSOPC" received FIN.
+2025-09-17 04:45:31.701 +03:00 [DBG] Connection id "0HNFLHFFGSOPC" is closed. The last processed stream ID was 1.
+2025-09-17 04:45:31.702 +03:00 [DBG] The connection queue processing loop for 0HNFLHFFGSOPC completed.
+2025-09-17 04:45:31.703 +03:00 [DBG] Connection id "0HNFLHFFGSOPC" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-09-17 04:45:31.715 +03:00 [DBG] Connection id "0HNFLHFFGSOPC" stopped.
+2025-09-17 04:45:32.925 +03:00 [DBG] Connection id "0HNFLHFFGSOPD" accepted.
+2025-09-17 04:45:32.963 +03:00 [DBG] Connection id "0HNFLHFFGSOPD" started.
+2025-09-17 04:45:32.970 +03:00 [DBG] Connection 0HNFLHFFGSOPD established using the following protocol: "Tls12"
+2025-09-17 04:45:32.978 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-17 04:45:32.984 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7061/_vs/browserLink - null null
+2025-09-17 04:45:33.060 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_framework/aspnetcore-browser-refresh.js - 200 13780 application/javascript; charset=utf-8 82.0063ms
+2025-09-17 04:45:33.244 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7061/_vs/browserLink - 200 null text/javascript; charset=UTF-8 259.6278ms
+2025-09-17 04:45:33.393 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7061/swagger/v1/swagger.json - null null
+2025-09-17 04:45:33.617 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7061/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 224.5148ms
+2025-09-17 04:45:41.710 +03:00 [DBG] Connection id "0HNFLHFFGSOPD" received FIN.
+2025-09-17 04:45:41.712 +03:00 [DBG] The connection queue processing loop for 0HNFLHFFGSOPD completed.
+2025-09-17 04:45:41.712 +03:00 [DBG] Connection id "0HNFLHFFGSOPD" is closed. The last processed stream ID was 5.
+2025-09-17 04:45:41.717 +03:00 [DBG] Connection id "0HNFLHFFGSOPD" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-09-17 04:45:41.725 +03:00 [DBG] Connection id "0HNFLHFFGSOPD" stopped.

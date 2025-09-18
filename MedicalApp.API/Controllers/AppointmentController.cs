@@ -79,5 +79,21 @@ namespace MedicalApp.API.Controllers
                 appointment.Id, appointment.PatientId, appointment.DoctorId, appointment.AppointmentDate);
             return NoContent();
         }
+        [HttpPatch("complete/{id:int}")]
+        public IActionResult CompleteAppointment(int id)
+        {
+            var appointment = _unitOfWork.AppointmentRepo.GetById(id);
+            if (appointment == null)
+            {
+                return NotFound();
+            }
+            appointment.Status = Status.Completed;
+            _unitOfWork.AppointmentRepo.Update(appointment);
+            _unitOfWork.SaveChanges();
+            Log.Information("Appointment completed: AppointmentId={AppointmentId}, PatientId={PatientId}, DoctorId={DoctorId},Date={Date}",
+                appointment.Id, appointment.PatientId, appointment.DoctorId, appointment.AppointmentDate);
+            return NoContent();
+        }
+
     }
 }

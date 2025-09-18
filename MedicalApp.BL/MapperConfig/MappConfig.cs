@@ -54,7 +54,7 @@ namespace MedicalApp.BL.MapperConfig
             {
                 dest.DoctorName = src.Doctor.User.FirstName + " " + src.Doctor.User.LastName;
                 dest.PatientName = src.Patient.User.FirstName + " " + src.Patient.User.LastName;
-
+                dest.DateOfBirth = src.Patient.DateOfBirth;
             }).ReverseMap();
 
             CreateMap<AppointmentDTO, Appointment>().AfterMap((src, dest) =>
@@ -67,13 +67,26 @@ namespace MedicalApp.BL.MapperConfig
             CreateMap<Doctor, RegisterDoctorDTO>().ReverseMap();
             CreateMap<UpdateDoctorDTO, Doctor>()
            .ForMember(dest => dest.Specialization, opt => opt.Condition(src => src.Specialization != null));
-
+            CreateMap<Doctor, ReadDoctorDTO>().AfterMap((src, dest) =>
+            {
+                dest.FirstName = src.User.FirstName;
+                dest.LastName = src.User.LastName;
+                dest.PhoneNumber = src.User.PhoneNumber;
+                dest.Email = src.User.Email;
+            }).ReverseMap();
             #endregion
 
             #region Patient Mappings
             CreateMap<Patient, RegisterPatientDTO>().ReverseMap();
             CreateMap<UpdatePatientDTO, Patient>()
           .ForMember(dest => dest.DateOfBirth, opt => opt.Condition(src => src.DateOfBirth != null));
+            CreateMap<Patient, ReadPatientDTO>().AfterMap((src, dest) =>
+            {
+                dest.FirstName = src.User.FirstName;
+                dest.LastName = src.User.LastName;
+                dest.PhoneNumber = src.User.PhoneNumber;
+                dest.Email = src.User.Email;
+            }).ReverseMap();
             #endregion
 
         }

@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Security.Claims;
+using AutoMapper;
 using MedicalApp.BL.DTOs.DoctorDTOs;
 using MedicalApp.BL.DTOs.PatientDTOs;
 using MedicalApp.BL.Interfaces;
@@ -18,14 +19,12 @@ namespace MedicalApp.API.Controllers
     public class PatientController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
-        //private readonly IPatientRepository _patientRepository;
         private readonly IMapper _mapper;
         private readonly UserManager<ApplicationUser> _userManager;
         public PatientController(IUnitOfWork unitOfWork,
             IPatientRepository patientRepository, IMapper mapper, UserManager<ApplicationUser> userManager)
         {
             _unitOfWork = unitOfWork;
-            //_patientRepository = patientRepository;
             _mapper = mapper;
             _userManager = userManager;
         }
@@ -68,7 +67,8 @@ namespace MedicalApp.API.Controllers
             {
                 return NotFound();
             }
-            return Ok(patient);
+            var patientDTO = _mapper.Map<ReadPatientDTO>(patient);
+            return Ok(patientDTO);
         }
 
         [Authorize(Roles = "Admin, Patient")]
@@ -97,6 +97,23 @@ namespace MedicalApp.API.Controllers
             _unitOfWork.SaveChanges();
             Log.Information("Patient updated: Id={PatientId}, Email={Email}", patient.Id, patient.User.Email);
             return Ok();
+        }
+
+        [HttpGet("all")]
+        public IActionResult GetAllPatients()
+        {
+            var patients = _unitOfWork.PatientRepo.GetAll().ToList();
+            var patientsDTO = _mapper.Map<List<ReadPatientDTO>>(patients);
+            return Ok(patientsDTO);
+        }
+
+        [HttpGet("patient-id")]
+        public IActionResult GetMyPatientId()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var patient = _unitOfWork.PatientRepo.GetAll().FirstOrDefault(p => p.UserId == userId);
+            if (patient == null) return NotFound();
+            return Ok(patient.Id);
         }
     }
 }

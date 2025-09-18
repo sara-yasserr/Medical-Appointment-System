@@ -1,5 +1,9 @@
-﻿using AutoMapper;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Security.Claims;
+using AutoMapper;
 using MedicalApp.BL.DTOs.DoctorDTOs;
+using MedicalApp.BL.DTOs.PatientDTOs;
 using MedicalApp.BL.Interfaces;
 using MedicalApp.DA.Interfaces;
 using MedicalApp.DA.Models;
@@ -66,8 +70,10 @@ namespace MedicalApp.API.Controllers
             {
                 return NotFound();
             }
-            return Ok(doctor);
+            var doctorDTO = _mapper.Map<ReadDoctorDTO>(doctor);
+            return Ok(doctorDTO);
         }
+
         [Authorize(Roles = "Admin, Doctor")]
         [HttpPatch("update/{id:int}")]
         public async Task<IActionResult> Update(int id, [FromBody] UpdateDoctorDTO updateDTO)
@@ -96,6 +102,24 @@ namespace MedicalApp.API.Controllers
             Log.Information("Doctor updated: Id={DoctorId}, Email={Email}", doctor.Id, doctor.User.Email);
 
             return Ok();
+        }
+
+        [HttpGet("all")]
+        public IActionResult GetAllDoctors()
+        {
+            var doctors = _unitOfWork.DoctorRepo.GetAll().ToList();
+            var doctorsDTO = _mapper.Map<List<ReadDoctorDTO>>(doctors);
+            return Ok(doctorsDTO);
+        }
+
+        //[Authorize]
+        [HttpGet("doctor-id")]
+        public IActionResult GetMyDoctorId()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var doctor = _unitOfWork.DoctorRepo.GetAll().FirstOrDefault(d => d.UserId == userId);
+            if (doctor == null) return NotFound();
+            return Ok(doctor.Id);
         }
 
     }
